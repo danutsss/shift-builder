@@ -19,7 +19,8 @@
     <link rel="stylesheet" href="./src/assets/css/main.css">
 </head>
 
-<body>
+<body class="bg-gray-100">
+    <!-- Navbar start -->
     <nav class="bg-gray-800">
         <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
             <div class="relative flex items-center justify-between h-16">
@@ -55,13 +56,71 @@
             </div>
         </div>
     </nav>
+    <!-- Navbar end -->
 
-    <div class="app"></div>
+    <!-- Main content start -->
+    <div class="overflow-x-auto mb-auto mt-auto">
+        <div class="min-w-screen flex justify-center font-sans overflow-hidden">
+            <div class="w-full lg:w-5/6">
+                <div class="bg-white shadow-md rounded my-6">
+                    <table class="min-w-max w-full table-auto">
+                        <thead class="bg-gray-200 text-gray-600 uppercase text-sm text-center">
+                            <tr>
+                                <th class="px-6 py-3">Date</th>
+                                <th class="px-6 py-3">Start time</th>
+                                <th class="px-6 py-3">End time</th>
+                                <th class="px-6 py-3">Hourly wage</th>
+                                <th class="px-6 py-3">Workplace</th>
+                                <th class="px-6 py-3">Total profit per shift</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-center text-gray-600">
+                            <tr class="border-b border-gray-200 hover:bg-gray-100">
+                                <td class="px-6 py-3">24.08.2022</td>
+                                <td class="px-6 py-3">10:00AM</td>
+                                <td class="px-6 py-3">17:00PM</td>
+                                <td class="px-6 py-3">120 RON</td>
+                                <td class="px-6 py-3">ZERO SAPTE SERVICES</td>
+                                <td class="px-6 py-3">840 RON</td>
+                            </tr>
+                            <tr class="border-b border-gray-200 hover:bg-gray-100">
+                                <td class="px-6 py-3">24.08.2022</td>
+                                <td class="px-6 py-3">10:00AM</td>
+                                <td class="px-6 py-3">17:00PM</td>
+                                <td class="px-6 py-3">120 RON</td>
+                                <td class="px-6 py-3">ZERO SAPTE SERVICES</td>
+                                <td class="px-6 py-3">840 RON</td>
+                            </tr>
+                            <tr class="border-b border-gray-200 hover:bg-gray-100">
+                                <td class="px-6 py-3">24.08.2022</td>
+                                <td class="px-6 py-3">10:00AM</td>
+                                <td class="px-6 py-3">17:00PM</td>
+                                <td class="px-6 py-3">120 RON</td>
+                                <td class="px-6 py-3">ZERO SAPTE SERVICES</td>
+                                <td class="px-6 py-3">840 RON</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr class="border-t border-gray-200">
+                                <td colspan="6" class="px-6 py-3">
+                                    <div class="flex justify-center uppercase text-gray-600">
+                                        <span class="text-sm font-medium">Best month (highest earnings):</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Main content end -->
 
+    <!-- Footer start -->
     <footer class="bg-black py-8 mt-auto">
-        <div class="container flex flex-col md:flex-row items-center">
-            <div class="flex flex-1 flex-wrap items-center justify-center md:justify-start gap-12">
-                <div class="flex items-center justify-center ml-6">
+        <div class="flex flex-col md:flex-row items-center">
+            <div class="flex flex-1 flex-wrap items-center justify-center md:justify-center gap-12">
+                <div class="flex items-center justify-center">
                     <span class="text-white">
                         SHIFT BUILDER
                     </span>
@@ -80,6 +139,7 @@
             </div>
         </div>
     </footer>
+    <!-- Footer end -->
 </body>
 
 </html>

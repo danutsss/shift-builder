@@ -14,10 +14,14 @@
 
     <!-- Register page JavaScript -->
     <script src="./src/assets/js/register.js" type="module" defer></script>
+
+    <!-- Website .css -->
+    <link rel="stylesheet" href="./src/assets/css/main.css" />
 </head>
 
 <body>
-    <div class="flex flex-row justify-center items-center h-screen">
+    <!-- Main content start -->
+    <div class="mt-auto mb-auto flex justify-center">
         <div class="w-full max-w-md">
             <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
                 <div class="mb-4">
@@ -116,6 +120,29 @@
             </div>
         </div>
     </div>
+    <!-- Main content end -->
+
+    <!-- Footer start -->
+    <footer class="bg-black py-8 mt-auto">
+        <div class="flex flex-col md:flex-row items-center">
+            <div class="flex flex-1 flex-wrap items-center justify-center md:justify-center gap-12">
+                <div class="flex items-center justify-center">
+                    <span class="text-white">
+                        SHIFT BUILDER
+                    </span>
+                </div>
+                <ul class="flex text-white uppercase gap-12 text-xs">
+                    <li class="cursor-pointer">
+                        <a class="text-white" href="./login.html">Login</a>
+                    </li>
+                    <li class="cursor-pointer">
+                        <a class="text-white" href="./register.html">Register</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer end -->
 </body>
 
 </html>

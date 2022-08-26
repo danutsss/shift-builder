@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login @ Shift Builder</title>
+
+    <!-- Tailwind CSS + Tailwind Forms -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+    <!-- Tailwind CSS config -->
+    <script src="./src/services/utils/tailwind-config.js"></script>
+
+    <!-- Login page JavaScript -->
+    <script src="./src/assets/js/login.js" type="module" defer></script>
+</head>
+
+<body>
+    <div class="flex flex-row justify-center items-center h-screen">
+        <div class="w-full max-w-md">
+            <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                <div class="mb-4">
+                    <h1 class="text-center text-2xl font-bold">Login @ Shift Builder</h1>
+                    <p class="text-center text-gray-600 text-xs">
+                        or <a href="register.html" class="text-clifford">register</a> if you adon't have an account.
+                    </p>
+                </div>
+
+                <div id="successElement"
+                    class="hidden bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md"
+                    role="alert">
+                    <div class="flex">
+                        <div class="py-1">
+                            <svg class="fill-current h-6 w-6 text-teal-500 mr-4" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 20 20">
+                                <path
+                                    d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="font-bold">Informational message</p>
+                            <p class="text-sm">Logged in successfully, you'll be redirected.</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="errorElement"
+                    class="hidden bg-red-vivid-100 border-t-4 border-red-vivid-500 rounded-b text-red-vivid-900 px-4 py-3 shadow-md"
+                    role="alert">
+                    <div class="flex">
+                        <div class="py-1">
+                            <svg class="fill-current h-6 w-6 text-red-vivid-500 mr-4" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 20 20">
+                                <path
+                                    d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="font-bold">Error! Something went wrong.</p>
+                            <p class="text-sm" id="errorMsg">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="mt-8 space-y-6" id="loginForm">
+                    <div class="flex flex-row rounded-md gap-2">
+                        <label for="emailAddress" class="sr-only">Email address</label>
+                        <input id="emailAddress" name="emailAddress" type="email" autocomplete="email"
+                            class="shadow-sm appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                            placeholder="Email address" />
+                    </div>
+
+                    <div class="flex flex-row rounded-md gap-2">
+                        <label for="password" class="sr-only">Password</label>
+                        <input id="password" name="password" type="password" autocomplete="new-password"
+                            class="shadow-sm appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                            placeholder="Password" />
+                    </div>
+
+                    <button type="submit"
+                        class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        Login
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

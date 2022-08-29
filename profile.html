@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage @ Shift builder</title>
+
+    <!-- Tailwind CSS + Tailwind Forms -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+    <!-- Tailwind CSS config -->
+    <script src="./src/services/utils/tailwind-config.js"></script>
+
+    <!-- Homepage JavaScript -->
+    <script src="./src/assets/js/index.js" defer></script>
+
+    <!-- Website .css -->
+    <link rel="stylesheet" href="./src/assets/css/main.css">
+</head>
+
+<body class="bg-gray-100">
+    <!-- Navbar start -->
+    <nav class="bg-gray-800">
+        <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+            <div class="relative flex items-center justify-between h-16">
+                <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+                    <div class="flex-shrink-0 flex items-center">
+                        <a href="index.html">
+                            <img class="block lg:hidden h-8 w-auto"
+                                src="https://objectstorage.il-jerusalem-1.oraclecloud.com/p/9Ot5KJZURcBZ4f5_VugSiP1Ood7Aia7PLr2TiB5m52r4hBhpNAlDnV0kD8P9Uxcy/n/frk390hq4eso/b/blossom-main/o/public/wawiwa_tech/themes/1/Logo_Wawiwa_40x40px_trans_forBlossom.png?_1658209002"
+                                alt="Workflow" />
+                            <img class="hidden lg:block h-8 w-auto"
+                                src="https://objectstorage.il-jerusalem-1.oraclecloud.com/p/9Ot5KJZURcBZ4f5_VugSiP1Ood7Aia7PLr2TiB5m52r4hBhpNAlDnV0kD8P9Uxcy/n/frk390hq4eso/b/blossom-main/o/public/wawiwa_tech/themes/1/Logo_Wawiwa_40x40px_trans_forBlossom.png?_1658209002"
+                                alt="Workflow" />
+                        </a>
+                    </div>
+                    <div class="hidden sm:block sm:ml-6">
+                        <div class="flex space-x-4">
+                            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                            <a href="./index.html"
+                                class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">My
+                                shifts</a>
+
+                            <a href="./add-shift.html"
+                                class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Add
+                                a shift</a>
+                            <a href="./profile.html"
+                                class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
+                                aria-current="page">Profile</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex text-white font-light hidden lg:block">
+                    Hello, <span class="text-white font-medium" id="userName"></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar end -->
+
+    <!-- Footer start -->
+    <footer class="bg-black py-8 mt-auto">
+        <div class="flex flex-col md:flex-row items-center">
+            <div class="flex flex-1 flex-wrap items-center justify-center md:justify-center gap-12">
+                <div class="flex items-center justify-center">
+                    <span class="text-white">
+                        SHIFT BUILDER
+                    </span>
+                </div>
+                <ul class="flex text-white uppercase gap-12 text-xs">
+                    <li class="cursor-pointer">
+                        <a class="text-white" href="./index.html">My shifts</a>
+                    </li>
+                    <li class="cursor-pointer">
+                        <a class="text-white" href="./add-shift.html">Add a shift</a>
+                    </li>
+                    <li class="cursor-pointer">
+                        <a class="text-white" href="./profile.html">Profile</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer end -->
+</body>
+
+</html>

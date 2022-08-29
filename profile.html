@@ -13,7 +13,7 @@
     <script src="./src/services/utils/tailwind-config.js"></script>
 
     <!-- Homepage JavaScript -->
-    <script src="./src/assets/js/index.js" defer></script>
+    <script src="./src/assets/js/profile.js" type="module" defer></script>
 
     <!-- Website .css -->
     <link rel="stylesheet" href="./src/assets/css/main.css">
@@ -53,11 +53,113 @@
                 </div>
                 <div class="flex text-white font-light hidden lg:block">
                     Hello, <span class="text-white font-medium" id="userName"></span>
+                    <button class="bg-white text-black ml-3 px-3 py-2 rounded-md text-sm font-medium"
+                        id="logoutButton">Logout</button>
                 </div>
             </div>
         </div>
     </nav>
     <!-- Navbar end -->
+
+    <!-- Main content start -->
+    <div class="mt-auto mb-auto flex justify-center">
+        <div class="w-full max-w-md">
+            <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                <div class="mb-4">
+                    <h1 class="text-center text-2xl font-bold">Edit profile @ Shift Builder</h1>
+                </div>
+                <form class="mt-8 space-y-6" id="editForm">
+
+                    <div id="successElement"
+                        class="hidden bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md"
+                        role="alert">
+                        <div class="flex">
+                            <div class="py-1">
+                                <svg class="fill-current h-6 w-6 text-teal-500 mr-4" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 20 20">
+                                    <path
+                                        d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-bold">Informational message</p>
+                                <p class="text-sm">Your profile has been updated successfully!</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="errorElement"
+                        class="hidden bg-red-vivid-100 border-t-4 border-red-vivid-500 rounded-b text-red-vivid-900 px-4 py-3 shadow-md"
+                        role="alert">
+                        <div class="flex">
+                            <div class="py-1">
+                                <svg class="fill-current h-6 w-6 text-red-vivid-500 mr-4"
+                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                    <path
+                                        d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-bold">Error! Something went wrong.</p>
+                                <p class="text-sm" id="errorMsg">
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-row rounded-md gap-2">
+                        <div class="w-1/2">
+                            <label for="firstName" class="sr-only">First name</label>
+                            <input id="firstName" name="firstName" type="text" autocomplete="additional-name"
+                                class="shadow-sm appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                                placeholder="First name" />
+                        </div>
+                        <div class="w-1/2">
+                            <label for="lastName" class="sr-only">Last name</label>
+                            <input id="lastName" name="lastName" type="text" autocomplete="family-name"
+                                class="shadow-sm appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                                placeholder="Last name" />
+                        </div>
+                    </div>
+
+                    <div class="flex flex-row rounded-md gap-2">
+                        <label for="emailAddress" class="sr-only">Email address</label>
+                        <input id="emailAddress" name="emailAddress" type="email" autocomplete="email"
+                            class="shadow-sm appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                            placeholder="Email address" />
+                    </div>
+
+                    <div class="flex flex-row rounded-md gap-2">
+                        <div class="w-1/2">
+                            <label for="userNameInput" class="sr-only">Username</label>
+                            <input id="userNameInput" name="userNameInput" type="text" autocomplete="additional-name"
+                                class="shadow-sm appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                                placeholder="Username" />
+                        </div>
+                        <div class="w-1/2">
+                            <label for="age" class="sr-only">Age</label>
+                            <input id="age" name="age" type="number" min="18" max="65"
+                                class="shadow-sm appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                                placeholder="Age" />
+                        </div>
+                    </div>
+
+                    <div class="flex flex-row rounded-md gap-2">
+                        <label for="password" class="sr-only">Password</label>
+                        <input id="password" name="password" type="password" autocomplete="new-password"
+                            class="shadow-sm appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                            placeholder="Password" />
+                    </div>
+
+                    <button type="submit"
+                        class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        Update account
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Main content end -->
 
     <!-- Footer start -->
     <footer class="bg-black py-8 mt-auto">

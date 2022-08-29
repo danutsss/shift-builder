@@ -1,24 +1,14 @@
-const userNamePlaceholder = document.querySelector("#userName");
+import { checkLoggedInUser, logoutUser } from "../../services/utils/utils.js";
+checkLoggedInUser();
+
 const bestMonthField = document.querySelector("#bestMonth");
 const tableBody = document.querySelector("#tableBody");
 const startDate = document.querySelector("#startDate");
 const endDate = document.querySelector("#endDate");
 const searchTable = document.querySelector("#shiftsTable");
 const searchInput = document.querySelector("#searchInput");
-
-const checkLoggedInUser = () => {
-	const loggedInUser = localStorage.getItem("loggedIn");
-	if (loggedInUser) {
-		const user = JSON.parse(loggedInUser);
-		userNamePlaceholder.innerText = user.userName;
-	} else {
-		setTimeout(() => {
-			window.location.href = "./login.html";
-		}, 1500);
-	}
-};
-
-checkLoggedInUser();
+const logoutButton = document.querySelector("#logoutButton");
+logoutButton.addEventListener("click", logoutUser);
 
 const loadShifts = () => {
 	const localStorageShifts = JSON.parse(localStorage.getItem("shifts")) || [];
@@ -64,8 +54,9 @@ const calculateBestMonth = () => {
 			shiftsByMonth[shiftKey] = 1;
 		}
 	});
-	const bestMonth = Object.keys(shiftsByMonth).reduce((a, b) =>
-		shiftsByMonth[a] > shiftsByMonth[b] ? a : b
+	const bestMonth = Object.keys(shiftsByMonth).reduce(
+		(a, b) => (shiftsByMonth[a] > shiftsByMonth[b] ? a : b),
+		"none"
 	);
 	bestMonthField.innerText = `Best month (highest earnings): ${bestMonth}`;
 };

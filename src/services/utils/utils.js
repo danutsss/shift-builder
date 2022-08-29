@@ -13,9 +13,23 @@ const validateEmail = (email) => {
 	return emailRegex.test(String(email).toLowerCase());
 };
 
-const checkUsername = (username) => {
-	const userNameRegex = /^[\w&.\-]+$/;
-	return userNameRegex.test(String(username).toLocaleLowerCase());
+const userNamePlaceholder = document.querySelector("#userName");
+
+const checkLoggedInUser = () => {
+	const loggedInUser = localStorage.getItem("loggedIn");
+	if (loggedInUser) {
+		const user = JSON.parse(loggedInUser);
+		userNamePlaceholder.innerText = user.userName;
+	} else {
+		setTimeout(() => {
+			window.location.href = "./login.html";
+		}, 1500);
+	}
 };
 
-export { checkEmptyFields, validateEmail, checkUsername };
+const logoutUser = () => {
+	localStorage.removeItem("loggedIn");
+	window.location.href = "./login.html";
+};
+
+export { checkEmptyFields, validateEmail, checkLoggedInUser, logoutUser };

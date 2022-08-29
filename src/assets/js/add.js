@@ -1,4 +1,10 @@
-import { checkEmptyFields } from "../../services/utils/utils.js";
+import {
+	checkEmptyFields,
+	checkLoggedInUser,
+	logoutUser,
+} from "../../services/utils/utils.js";
+
+checkLoggedInUser();
 
 const shiftSlugField = document.querySelector("#shiftSlug");
 const shiftDateField = document.querySelector("#shiftDate");
@@ -11,6 +17,8 @@ const addShiftForm = document.querySelector("#addShift");
 const errorElement = document.querySelector("#errorElement");
 const successElement = document.querySelector("#successElement");
 const errorMsg = document.querySelector("#errorMsg");
+const logoutButton = document.querySelector("#logoutButton");
+logoutButton.addEventListener("click", logoutUser);
 
 addShiftForm.onsubmit = (event) => addShift(event);
 

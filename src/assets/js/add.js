@@ -46,15 +46,6 @@ const addShift = (event) => {
 		return;
 	}
 
-	// Check if the shift date is in the future.
-	const shiftDate = new Date(shiftDateField.value);
-	const today = new Date();
-	if (shiftDate < today) {
-		errorElement.style.display = "block";
-		errorMsg.innerHTML = "The shift date cannot be in the past.";
-		return;
-	}
-
 	// Check if the start time is before the end time.
 	const startTime = new Date(
 		`${shiftDateField.value} ${startTimeField.value}`

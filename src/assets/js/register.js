@@ -1,8 +1,4 @@
-import {
-	validateEmail,
-	checkEmptyFields,
-	checkUsername,
-} from "../../services/utils/utils.js";
+import { validateEmail, checkEmptyFields } from "../../services/utils/utils.js";
 
 const firstNameField = document.querySelector("#firstName");
 const lastNameField = document.querySelector("#lastName");
@@ -33,13 +29,6 @@ const registerUser = (event) => {
 	) {
 		errorElement.classList.remove("hidden");
 		errorMsg.innerText = "Please fill in all fields.";
-		return;
-	}
-
-	if (!checkUsername(userNameField.value)) {
-		errorElement.classList.remove("hidden");
-		errorMsg.innerText =
-			"The username must contain a letter, a number and a special character.";
 		return;
 	}
 

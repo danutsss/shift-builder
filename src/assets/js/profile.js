@@ -16,6 +16,7 @@ const successElement = document.querySelector("#successElement");
 const errorMsg = document.querySelector("#errorMsg");
 const errorElement = document.querySelector("#errorElement");
 const editForm = document.querySelector("#editForm");
+
 const logoutButton = document.querySelector("#logoutButton");
 logoutButton.addEventListener("click", logoutUser);
 

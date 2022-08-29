@@ -7,6 +7,7 @@ const startDate = document.querySelector("#startDate");
 const endDate = document.querySelector("#endDate");
 const searchTable = document.querySelector("#shiftsTable");
 const searchInput = document.querySelector("#searchInput");
+
 const logoutButton = document.querySelector("#logoutButton");
 logoutButton.addEventListener("click", logoutUser);
 
@@ -67,7 +68,7 @@ const tableSearch = () => {
 	const searchFilter = searchInput.value.toUpperCase();
 	const searchTr = searchTable.getElementsByTagName("tr");
 	const searchTh = searchTable.getElementsByTagName("th");
-	for (i = 1; i < searchTr.length; i++) {
+	for (let i = 1; i < searchTr.length; i++) {
 		searchTr[i].style.display = "none";
 
 		for (let j = 0; j < searchTh.length; j++) {
@@ -91,7 +92,7 @@ const filterTableByDates = () => {
 	const searchTr = searchTable.getElementsByTagName("tr");
 	const startDateValue = startDate.value;
 	const endDateValue = endDate.value;
-	for (i = 1; i < searchTr.length; i++) {
+	for (let i = 1; i < searchTr.length; i++) {
 		const searchTd = searchTr[i].getElementsByTagName("td")[0];
 		if (searchTd) {
 			if (
@@ -106,4 +107,5 @@ const filterTableByDates = () => {
 	}
 };
 
+startDate.addEventListener("change", filterTableByDates);
 endDate.addEventListener("change", filterTableByDates);

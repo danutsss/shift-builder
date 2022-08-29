@@ -17,6 +17,7 @@ const addShiftForm = document.querySelector("#addShift");
 const errorElement = document.querySelector("#errorElement");
 const successElement = document.querySelector("#successElement");
 const errorMsg = document.querySelector("#errorMsg");
+
 const logoutButton = document.querySelector("#logoutButton");
 logoutButton.addEventListener("click", logoutUser);
 

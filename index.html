@@ -38,11 +38,11 @@
                     <div class="hidden sm:block sm:ml-6">
                         <div class="flex space-x-4">
                             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                            <a href="./my-shifts.html"
+                            <a href="./index.html"
                                 class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
                                 aria-current="page">My shifts</a>
 
-                            <a href="./add.html"
+                            <a href="./add-shift.html"
                                 class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Add
                                 a shift</a>
                             <a href="./profile.html"
@@ -62,8 +62,21 @@
     <div class="overflow-x-auto mb-auto mt-auto">
         <div class="min-w-screen flex justify-center font-sans overflow-hidden">
             <div class="w-full lg:w-5/6">
+                <div class="my-6 flex gap-2">
+                    <input type="text" id="searchInput"
+                        class="shadow-sm appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                        placeholder="Search in tables..." />
+
+                    <input type="date" id="startDate"
+                        class="shadow-sm appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                        placeholder="Select start date" />
+
+                    <input type="date" id="endDate"
+                        class="shadow-sm appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                        placeholder="Select end date" />
+                </div>
                 <div class="bg-white shadow-md rounded my-6">
-                    <table class="min-w-max w-full table-auto">
+                    <table class="min-w-max w-full table-auto" id="shiftsTable">
                         <thead class="bg-gray-200 text-gray-600 uppercase text-sm text-center">
                             <tr>
                                 <th class="px-6 py-3">Date</th>
@@ -71,40 +84,16 @@
                                 <th class="px-6 py-3">End time</th>
                                 <th class="px-6 py-3">Hourly wage</th>
                                 <th class="px-6 py-3">Workplace</th>
-                                <th class="px-6 py-3">Total profit per shift</th>
+                                <th class="px-6 py-3">Profit per shift</th>
                             </tr>
                         </thead>
-                        <tbody class="text-center text-gray-600">
-                            <tr class="border-b border-gray-200 hover:bg-gray-100">
-                                <td class="px-6 py-3">24.08.2022</td>
-                                <td class="px-6 py-3">10:00AM</td>
-                                <td class="px-6 py-3">17:00PM</td>
-                                <td class="px-6 py-3">120 RON</td>
-                                <td class="px-6 py-3">ZERO SAPTE SERVICES</td>
-                                <td class="px-6 py-3">840 RON</td>
-                            </tr>
-                            <tr class="border-b border-gray-200 hover:bg-gray-100">
-                                <td class="px-6 py-3">24.08.2022</td>
-                                <td class="px-6 py-3">10:00AM</td>
-                                <td class="px-6 py-3">17:00PM</td>
-                                <td class="px-6 py-3">120 RON</td>
-                                <td class="px-6 py-3">ZERO SAPTE SERVICES</td>
-                                <td class="px-6 py-3">840 RON</td>
-                            </tr>
-                            <tr class="border-b border-gray-200 hover:bg-gray-100">
-                                <td class="px-6 py-3">24.08.2022</td>
-                                <td class="px-6 py-3">10:00AM</td>
-                                <td class="px-6 py-3">17:00PM</td>
-                                <td class="px-6 py-3">120 RON</td>
-                                <td class="px-6 py-3">ZERO SAPTE SERVICES</td>
-                                <td class="px-6 py-3">840 RON</td>
-                            </tr>
+                        <tbody class="text-center text-gray-600" id="tableBody">
                         </tbody>
                         <tfoot>
                             <tr class="border-t border-gray-200">
                                 <td colspan="6" class="px-6 py-3">
                                     <div class="flex justify-center uppercase text-gray-600">
-                                        <span class="text-sm font-medium">Best month (highest earnings):</span>
+                                        <span class="text-sm font-medium" id="bestMonth"></span>
                                     </div>
                                 </td>
                             </tr>
@@ -127,10 +116,10 @@
                 </div>
                 <ul class="flex text-white uppercase gap-12 text-xs">
                     <li class="cursor-pointer">
-                        <a class="text-white" href="./my-shifts.html">My shifts</a>
+                        <a class="text-white" href="./index.html">My shifts</a>
                     </li>
                     <li class="cursor-pointer">
-                        <a class="text-white" href="./add.html">Add a shift</a>
+                        <a class="text-white" href="./add-shift.html">Add a shift</a>
                     </li>
                     <li class="cursor-pointer">
                         <a class="text-white" href="./profile.html">Profile</a>

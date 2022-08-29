@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add shift @ Shift builder</title>
+
+    <!-- Tailwind CSS + Tailwind Forms -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+    <!-- Tailwind CSS config -->
+    <script src="./src/services/utils/tailwind-config.js"></script>
+
+    <!-- Add shift JavaScript -->
+    <script src="./src/assets/js/add.js" type="module" defer></script>
+
+    <!-- Website .css -->
+    <link rel="stylesheet" href="./src/assets/css/main.css">
+</head>
+
+<body class="bg-gray-100">
+    <!-- Navbar start -->
+    <nav class="bg-gray-800">
+        <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+            <div class="relative flex items-center justify-between h-16">
+                <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+                    <div class="flex-shrink-0 flex items-center">
+                        <a href="index.html">
+                            <img class="block lg:hidden h-8 w-auto"
+                                src="https://objectstorage.il-jerusalem-1.oraclecloud.com/p/9Ot5KJZURcBZ4f5_VugSiP1Ood7Aia7PLr2TiB5m52r4hBhpNAlDnV0kD8P9Uxcy/n/frk390hq4eso/b/blossom-main/o/public/wawiwa_tech/themes/1/Logo_Wawiwa_40x40px_trans_forBlossom.png?_1658209002"
+                                alt="Workflow" />
+                            <img class="hidden lg:block h-8 w-auto"
+                                src="https://objectstorage.il-jerusalem-1.oraclecloud.com/p/9Ot5KJZURcBZ4f5_VugSiP1Ood7Aia7PLr2TiB5m52r4hBhpNAlDnV0kD8P9Uxcy/n/frk390hq4eso/b/blossom-main/o/public/wawiwa_tech/themes/1/Logo_Wawiwa_40x40px_trans_forBlossom.png?_1658209002"
+                                alt="Workflow" />
+                        </a>
+                    </div>
+                    <div class="hidden sm:block sm:ml-6">
+                        <div class="flex space-x-4">
+                            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                            <a href="./index.html"
+                                class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium ">My
+                                shifts</a>
+
+                            <a href="./add-shift.html"
+                                class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
+                                aria-current="page">Add
+                                a shift</a>
+                            <a href="./profile.html"
+                                class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Profile</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex text-white font-light hidden lg:block">
+                    Hello, <span class="text-white font-medium" id="userName"></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar end -->
+
+    <!-- Main content start -->
+    <div class="mt-auto mb-auto flex justify-center">
+        <div class="w-full max-w-md">
+            <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                <div class="mb-4">
+                    <h1 class="text-center text-2xl font-bold">Add a shift @ Shift Builder</h1>
+                    <p class="text-center text-gray-600 text-xs">
+                        or <a href="index.html" class="text-clifford">see</a> what you've already added.
+                    </p>
+                </div>
+
+                <form class="mt-8 space-y-6" id="addShift">
+                    <div id="successElement"
+                        class="hidden bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md"
+                        role="alert">
+                        <div class="flex">
+                            <div class="py-1">
+                                <svg class="fill-current h-6 w-6 text-teal-500 mr-4" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 20 20">
+                                    <path
+                                        d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-bold">Informational message</p>
+                                <p class="text-sm">A new shift has been added successfully in our database.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="errorElement"
+                        class="hidden bg-red-vivid-100 border-t-4 border-red-vivid-500 rounded-b text-red-vivid-900 px-4 py-3 shadow-md"
+                        role="alert">
+                        <div class="flex">
+                            <div class="py-1">
+                                <svg class="fill-current h-6 w-6 text-red-vivid-500 mr-4"
+                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                    <path
+                                        d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-bold">Error! Something went wrong.</p>
+                                <p class="text-sm" id="errorMsg">
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-row rounded-md gap-2">
+                        <label for="shiftSlug" class="sr-only">Shift slug</label>
+                        <input id="shiftSlug" name="shiftSlug" type="text"
+                            class="shadow-sm appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                            placeholder="Shift slug" />
+                    </div>
+
+                    <div class="flex flex-row rounded-md gap-2">
+                        <label for="shiftDate" class="sr-only">Shift date</label>
+                        <input id="shiftDate" name="shiftDate" type="date"
+                            class="shadow-sm appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                            placeholder="Shift date" />
+                    </div>
+
+                    <div class="flex flex-row rounded-md gap-2">
+                        <div class="w-1/2">
+                            <label for="startTime" class="sr-only">Start time</label>
+                            <input id="startTime" name="startTime" type="time"
+                                class="shadow-sm appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                                placeholder="Start time" />
+                        </div>
+                        <div class="w-1/2">
+                            <label for="endTime" class="sr-only">End time</label>
+                            <input id="endTime" name="endTime" type="time"
+                                class="shadow-sm appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                                placeholder="End time" />
+                        </div>
+                    </div>
+
+                    <div class="flex flex-row rounded-md gap-2">
+                        <div class="w-1/2">
+                            <label for="hourlyWage" class="sr-only">Hourly wage</label>
+                            <input id="hourlyWage" name="hourlyWage" type="number" min="0"
+                                class="shadow-sm appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                                placeholder="Hourly wage" />
+                        </div>
+                        <div class="w-1/2">
+                            <label for="workPlace" class="sr-only">Workplace</label>
+                            <input id="workPlace" name="workPlace" type="text"
+                                class="shadow-sm appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                                placeholder="Workplace" />
+                        </div>
+                    </div>
+
+                    <div class="flex flex-row rounded gap-2">
+                        <label for="shiftComments" class="sr-only">Comments</label>
+                        <textarea id="shiftComments" name="shiftComments"
+                            class="shadow-sm appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                            placeholder="Comments" rows="3"></textarea>
+                    </div>
+
+                    <button type="submit"
+                        class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        Add shift
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Main content end -->
+
+    <!-- Footer start -->
+    <footer class="bg-black py-8 mt-auto">
+        <div class="flex flex-col md:flex-row items-center">
+            <div class="flex flex-1 flex-wrap items-center justify-center md:justify-center gap-12">
+                <div class="flex items-center justify-center">
+                    <span class="text-white">
+                        SHIFT BUILDER
+                    </span>
+                </div>
+                <ul class="flex text-white uppercase gap-12 text-xs">
+                    <li class="cursor-pointer">
+                        <a class="text-white" href="./index.html">My shifts</a>
+                    </li>
+                    <li class="cursor-pointer">
+                        <a class="text-white" href="./add-shift.html">Add a shift</a>
+                    </li>
+                    <li class="cursor-pointer">
+                        <a class="text-white" href="./profile.html">Profile</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer end -->
+</body>
+
+</html>

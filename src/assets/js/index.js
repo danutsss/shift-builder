@@ -30,9 +30,9 @@ const loadShifts = () => {
 			<td class="px-6 py-3">${shift.date}</td>
 			<td class="px-6 py-3">${shift.startTime}</td>
 			<td class="px-6 py-3">${shift.endTime}</td>
-			<td class="px-6 py-3">${shift.hourlyWage} RON</td>
+			<td class="px-6 py-3">${shift.hourlyWage}$</td>
 			<td class="px-6 py-3">${shift.workPlace}</td>
-			<td class="px-6 py-3">${shiftProfit} RON</td>
+			<td class="px-6 py-3">${shiftProfit}$</td>
 		`;
 
 		tableBody.appendChild(shiftRow);

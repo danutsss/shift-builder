@@ -1,4 +1,8 @@
-import { checkLoggedInUser, logoutUser } from "../../services/utils/utils.js";
+import {
+	checkLoggedInUser,
+	logoutUser,
+	calculateShiftTotalWage,
+} from "../../services/utils/utils.js";
 
 window.onload = () => checkLoggedInUser();
 
@@ -21,9 +25,11 @@ const loadShifts = () => {
 	}
 
 	localStorageShifts.forEach((shift) => {
-		const shiftProfit =
-			shift.hourlyWage *
-			(shift.endTime.split(":")[0] - shift.startTime.split(":")[0]);
+		const shiftProfit = calculateShiftTotalWage(
+			shift.startTime,
+			shift.endTime,
+			shift.hourlyWage
+		);
 
 		const shiftRow = document.createElement("tr");
 		shiftRow.classList.add(

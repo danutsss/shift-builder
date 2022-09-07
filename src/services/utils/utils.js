@@ -32,4 +32,33 @@ const logoutUser = () => {
 	window.location.href = "./login.html";
 };
 
-export { checkEmptyFields, validateEmail, checkLoggedInUser, logoutUser };
+const calculateShiftTotalWage = (startTime, endTime, hourlyWage) => {
+	const startTimeHours = parseInt(startTime.substring(0, 2)),
+		startTimeMinutes = parseInt(startTime.substring(3, 5)),
+		endTimeHours = parseInt(endTime.substring(0, 2)),
+		endTimeMinutes = parseInt(endTime.substring(3, 5));
+
+	let shiftTotalWage = (endTimeHours - startTimeHours) * hourlyWage;
+
+	// If the end time is before the start time add the minutes.
+	if (endTimeHours < startTimeHours) {
+		shiftTotalWage = (24 - startTimeHours + endTimeHours) * hourlyWage;
+	}
+
+	if (endTimeMinutes > startTimeMinutes) {
+		shiftTotalWage +=
+			((endTimeMinutes - startTimeMinutes) / 60) * hourlyWage;
+	} else if (endTimeMinutes < startTimeMinutes) {
+		shiftTotalWage -=
+			((startTimeMinutes - endTimeMinutes) / 60) * hourlyWage;
+	}
+
+	return shiftTotalWage.toFixed(2);
+};
+export {
+	checkEmptyFields,
+	validateEmail,
+	checkLoggedInUser,
+	logoutUser,
+	calculateShiftTotalWage,
+};

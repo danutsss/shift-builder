@@ -15,6 +15,11 @@ logoutButton.addEventListener("click", logoutUser);
 const loadShifts = () => {
 	const localStorageShifts = JSON.parse(localStorage.getItem("shifts")) || [];
 
+	if (localStorageShifts.length === 0) {
+		tableBody.innerHTML = `<td colspan="6" class="px-6 py-3">No shifts found</td>`;
+		return;
+	}
+
 	localStorageShifts.forEach((shift) => {
 		const shiftProfit =
 			shift.hourlyWage *

@@ -1,8 +1,4 @@
-import {
-	validateEmail,
-	checkLoggedInUser,
-	logoutUser,
-} from "../../services/utils/utils.js";
+import { checkLoggedInUser, logoutUser } from "../../services/utils/utils.js";
 
 checkLoggedInUser();
 
@@ -21,16 +17,19 @@ const logoutButton = document.querySelector("#logoutButton");
 logoutButton.addEventListener("click", logoutUser);
 
 editForm.onsubmit = (event) => updateUser(event);
+window.onload = () => emailFieldAttr();
+
+const emailFieldAttr = () => {
+	// Get the user from localStorage.
+	const loggedIn = JSON.parse(localStorage.getItem("loggedIn"));
+
+	emailField.setAttribute("disabled", "disabled");
+	emailField.value = loggedIn.email;
+};
 
 const updateUser = (event) => {
 	// Prevent the form from reloading the page on submit.
 	event.preventDefault();
-
-	if (!validateEmail(emailField.value)) {
-		errorElement.classList.remove("hidden");
-		errorMsg.innerText = "Please enter a valid email address.";
-		return;
-	}
 
 	if (passField.value.length < 8) {
 		errorElement.classList.remove("hidden");
@@ -53,6 +52,12 @@ const updateUser = (event) => {
 	if (lastNameField.value.length < 2) {
 		errorElement.classList.remove("hidden");
 		errorMsg.innerText = "Last name must be at least 2 characters long.";
+		return;
+	}
+
+	if (passField.value !== confirmPassField.value) {
+		errorElement.classList.remove("hidden");
+		errorMsg.innerText = "Passwords do not match.";
 		return;
 	}
 

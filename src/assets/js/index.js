@@ -1,5 +1,6 @@
 import { checkLoggedInUser, logoutUser } from "../../services/utils/utils.js";
-checkLoggedInUser();
+
+window.onload = () => checkLoggedInUser();
 
 const bestMonthField = document.querySelector("#bestMonth");
 const tableBody = document.querySelector("#tableBody");

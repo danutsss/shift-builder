@@ -11,7 +11,7 @@ const lastNameField = document.querySelector("#lastName");
 const emailField = document.querySelector("#emailAddress");
 const userNameField = document.querySelector("#userNameInput");
 const passField = document.querySelector("#password");
-const confirmPassField = document.querySelectory("#confirmPassword");
+const confirmPassField = document.querySelector("#confirmPassword");
 const successElement = document.querySelector("#successElement");
 const errorMsg = document.querySelector("#errorMsg");
 const errorElement = document.querySelector("#errorElement");
@@ -91,6 +91,7 @@ const updateUser = (event) => {
 	user = {
 		firstName: firstNameField.value,
 		lastName: lastNameField.value,
+		age: user.age,
 		email: emailField.value,
 		userName: userNameField.value,
 		password: passField.value,

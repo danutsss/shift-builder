@@ -1,4 +1,8 @@
-import { checkLoggedInUser, logoutUser } from "../../services/utils/utils.js";
+import {
+	checkEmptyFields,
+	checkLoggedInUser,
+	logoutUser,
+} from "../../services/utils/utils.js";
 
 checkLoggedInUser();
 
@@ -6,8 +10,8 @@ const firstNameField = document.querySelector("#firstName");
 const lastNameField = document.querySelector("#lastName");
 const emailField = document.querySelector("#emailAddress");
 const userNameField = document.querySelector("#userNameInput");
-const ageField = document.querySelector("#age");
 const passField = document.querySelector("#password");
+const confirmPassField = document.querySelectory("#confirmPassword");
 const successElement = document.querySelector("#successElement");
 const errorMsg = document.querySelector("#errorMsg");
 const errorElement = document.querySelector("#errorElement");
@@ -30,6 +34,21 @@ const emailFieldAttr = () => {
 const updateUser = (event) => {
 	// Prevent the form from reloading the page on submit.
 	event.preventDefault();
+
+	// Check if there are any empty fields.
+	if (
+		checkEmptyFields(
+			firstNameField,
+			lastNameField,
+			userNameField,
+			passField,
+			confirmPassField
+		)
+	) {
+		errorElement.classList.remove("hidden");
+		errorMsg.innerText = "Please fill in all fields.";
+		return;
+	}
 
 	if (passField.value.length < 8) {
 		errorElement.classList.remove("hidden");
@@ -74,7 +93,6 @@ const updateUser = (event) => {
 		lastName: lastNameField.value,
 		email: emailField.value,
 		userName: userNameField.value,
-		age: ageField.value,
 		password: passField.value,
 	};
 

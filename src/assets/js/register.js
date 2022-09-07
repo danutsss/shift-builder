@@ -6,6 +6,7 @@ const emailField = document.querySelector("#emailAddress");
 const userNameField = document.querySelector("#userName");
 const ageField = document.querySelector("#age");
 const passField = document.querySelector("#password");
+const confirmPassField = document.querySelector("#confirmPassword");
 const registerForm = document.querySelector("#registerForm");
 const errorMsg = document.querySelector("#errorMsg");
 const errorElement = document.querySelector("#errorElement");
@@ -24,7 +25,8 @@ const registerUser = (event) => {
 			emailField,
 			userNameField,
 			ageField,
-			passField
+			passField,
+			confirmPassField
 		)
 	) {
 		errorElement.classList.remove("hidden");
@@ -59,6 +61,12 @@ const registerUser = (event) => {
 	if (lastNameField.value.length < 2) {
 		errorElement.classList.remove("hidden");
 		errorMsg.innerText = "Last name must be at least 2 characters long.";
+		return;
+	}
+
+	if (passField.value !== confirmPassField.value) {
+		errorElement.classList.remove("hidden");
+		errorMsg.innerText = "Passwords do not match.";
 		return;
 	}
 
